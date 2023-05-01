@@ -56,11 +56,13 @@ def login():
 
 
 
+
 @app.route('/chat', methods=['GET', 'POST'])
 
 def chat():
     if request.method == 'GET':
         print('get')
+        global username
         username = request.args.get('username')
         password = request.args.get('password')
 
@@ -76,11 +78,12 @@ def chat():
     if request.method == 'POST':
         message = request.form['message']
         
+        
         with open('mensajes.csv', 'a') as file:
             writer = csv.writer(file)
             writer.writerow([message])
             
-        return render_template('chat_program.html', message=message)
+        return render_template('chat_program.html',user=username , message=message)
         
         
 
