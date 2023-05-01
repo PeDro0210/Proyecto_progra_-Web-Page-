@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Community Chat</title>
+  </head>
+
+
+    <style>
+      body {
+        background-color: #000000;
+        color: #ffffff;
+      }
+      button {
+        background-color: #3ea341;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      input[type=text], input[type=message] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      
+      button:hover {
+        opacity: 0.8;
+      }
+      
+      .container {
+        padding: 16px;
+      }
+      
+      span.psw {
+        float: right;
+        padding-top: 16px;
+      }
+
+    </style>
+
+  <body>
+      <h1>{{user}}</h1>
+      <p>you did it</p>
+      <p>{{passs}}</p>
+      <p>{{message}}</p>
+
+	<form action="/chat" method="post">
+		<div class="container">
+      <div class="container">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="message" >
+        <button type="submit" name="loginButton">Login</button>
+    </div>
+
+
+
+    
+  </body>
+</html>
