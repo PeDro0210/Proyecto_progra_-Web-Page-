@@ -44,7 +44,7 @@ def login():
 
         if username and password in open(r'csv\usuarios.csv').read():
 
-            return redirect(url_for('home', username=username, password=password))
+            return redirect(url_for('chat', username=username, password=password))
         
         else:
             
@@ -85,31 +85,8 @@ def chat():
         return render_template('chat_program.html',user=username , message=message)
         
         
-@app.route('/home', methods=['GET', 'POST'])
 
 
-def home():
-    if request.method == 'GET':
-        
-        username = request.args.get('username')
-        password = request.args.get('password')
-        
-        print(username, password)
-
-        if username and password in open(r'csv\usuarios.csv').read():
-            
-            return render_template('home.html', user=username, passs=password)
-        
-        
-        else:
-            
-            return redirect(url_for('chat', username=username, password=password))
-        
-    if request.method == 'POST':
-    
-        #intente emparejar un post request con un boton de html, que ahorita tengo que hacer lo de evelyn
-        if request.form['submit_button'] == 'Chat':
-            return redirect(url_for('chat', username=username, password=password))
 
         
 
