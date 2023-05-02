@@ -18,9 +18,8 @@ def sign_up():
             return render_template("login.html")
         else:
             if username == "" or password == "":
-                return render_template(
-                    "sign_up.html", error="No puede haber campos vacíos"
-                )
+                return render_template("sign_up.html",
+                                       error="No puede haber campos vacíos")
             else:
                 with open(r"csv\usuarios.csv", "a") as file:
                     writer = csv.writer(file)
@@ -38,7 +37,8 @@ def login():
         password = request.form["password"]
 
         if username and password in open(r"csv\usuarios.csv").read():
-            return redirect(url_for("home", username=username, password=password))
+            return redirect(
+                url_for("home", username=username, password=password))
 
         else:
             return render_template("login.html")
@@ -57,7 +57,9 @@ def chat():
         password = request.args.get("password")
 
         if username and password in open(r"csv\usuarios.csv").read():
-            return render_template("chat_program.html", user=username, passs=password)
+            return render_template("chat_program.html",
+                                   user=username,
+                                   passs=password)
 
         else:
             return redirect(url_for("login"))
@@ -69,7 +71,9 @@ def chat():
             writer = csv.writer(file)
             writer.writerow([message])
 
-        return render_template("chat_program.html", user=username, message=message)
+        return render_template("chat_program.html",
+                               user=username,
+                               message=message)
 
 
 @app.route("/home", methods=["GET", "POST"])
@@ -84,9 +88,11 @@ def home():
             return render_template("home.html", user=username, passs=password)
 
         else:
-            return redirect(url_for("chat", username=username, password=password))
+            return redirect(
+                url_for("chat", username=username, password=password))
 
     if request.method == "POST":
         # intente emparejar un post request con un boton de html, que ahorita tengo que hacer lo de evelyn
         if request.form["submit_button"] == "Chat":
-            return redirect(url_for("chat", username=username, password=password))
+            return redirect(
+                url_for("chat", username=username, password=password))
