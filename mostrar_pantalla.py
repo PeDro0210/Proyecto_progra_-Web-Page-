@@ -14,13 +14,13 @@ def sign_up():
         
         print(username, password)
         
-        if username and password in open('usuarios.csv').read():
+        if username and password in open(r'csv\usuarios.csv').read():
             return render_template('login.html')
         else:
             if username == '' or password == '':
                 return render_template('sign_up.html', error='No puede haber campos vacíos')
             else:
-                with open('usuarios.csv', 'a') as file:
+                with open(r'csv\usuarios.csv', 'a') as file:
                     writer = csv.writer(file)
                     writer.writerow([username, password])
                 return redirect(url_for('login'))
@@ -39,7 +39,7 @@ def login():
         password = request.form['password']
 
 
-        if username and password in open('usuarios.csv').read():
+        if username and password in open(r'csv\usuarios.csv').read():
 
             return redirect(url_for('chat', username=username, password=password))
         
@@ -47,11 +47,10 @@ def login():
             
             return render_template('login.html')
         
-    if request.method == 'GET':
-        return render_template('login.html')
-        
     else:
+        
         return render_template('login.html')
+
 
 
 
@@ -66,7 +65,7 @@ def chat():
         username = request.args.get('username')
         password = request.args.get('password')
 
-        if username and password in open('usuarios.csv').read():
+        if username and password in open(r'csv\usuarios.csv').read():
             
             return render_template('chat_program.html', user=username, passs=password)
         
@@ -79,7 +78,7 @@ def chat():
         message = request.form['message']
         
         
-        with open('mensajes.csv', 'a') as file:
+        with open(r'csv\mensajes.csv', 'a') as file:
             writer = csv.writer(file)
             writer.writerow([message])
             
