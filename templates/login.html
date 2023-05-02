@@ -9,13 +9,13 @@
         align-items: center;
         height: 100vh;
       }
-      
+
       form {
         border: 1px solid #ccc;
         padding: 20px;
         width: 300px;
       }
-      
+
       input[type=text], input[type=password] {
         width: 100%;
         padding: 12px 20px;
@@ -24,7 +24,7 @@
         border: 1px solid #ccc;
         box-sizing: border-box;
       }
-      
+
       button {
         background-color: #3ea341;
         color: white;
@@ -34,39 +34,39 @@
         cursor: pointer;
         width: 100%;
       }
-      
+
       button:hover {
         opacity: 0.8;
       }
-      
+
       .container {
         padding: 16px;
       }
-      
+
       span.psw {
         float: right;
         padding-top: 16px;
       }
     </style>
   </head>
-  
-  
+
+
   <body>
     <form method="post" name="loginForm" action="/login">
       <h2>Login</h2>
       <div class="container">
         <label for="username"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="username" >
-        
+
         <label for="password"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" >
-        
+
         <button type="submit" name="loginButton">Login</button>
         <button type="submit" name="signup" formaction="/signup">Sign Up</button>
         <br>
       </div>
     </form>
-  
+
 
   </body>
 </html>
