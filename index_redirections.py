@@ -58,38 +58,16 @@ def login():
 
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
-    if request.method == 'GET':
-        print('get')
-        global username, password
-        
-        username = request.args.get('username')
-        password = request.args.get('password')
-
-        if username and password in open(r'csv\usuarios.csv').read():
             
-            return render_template('chat_program.html', user=username, passs=password)
+        return render_template('chat_program.html')
         
         
-        else:
-            
-            return redirect(url_for('login'))
-        
-    if request.method == 'POST':
-        message = request.form['message']
-        
-        
-        with open(r'csv\mensajes.csv', 'a') as file:
-            writer = csv.writer(file)
-            writer.writerow([message])
-            
-        return render_template('chat_program.html',user=username , message=message)
         
         
 @app.route('/home', methods=['GET', 'POST'])
-
-
 def home():
     if request.method == 'GET':
+        print('get')
         
         username = request.args.get('username')
         password = request.args.get('password')
@@ -101,17 +79,8 @@ def home():
             return render_template('home.html', user=username, passs=password)
         
         
-        else:
-            
-            return redirect(url_for('chat', username=username, password=password))
         
-    if request.method == 'POST':
-    
-        #intente emparejar un post request con un boton de html, que ahorita tengo que hacer lo de evelyn
-        if request.form['submit_button'] == 'Chat':
-            return redirect(url_for('chat', username=username, password=password))
 
-        
 
 
 
