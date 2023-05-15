@@ -2,6 +2,7 @@ import pandas as pd
 
 
 class data:
+
     def __init__(self, json_file):
         self.json_file = json_file
 
@@ -10,7 +11,11 @@ class data:
 
     def create_user(self, username, password):
         df = self.read_json()
-        df = df.append({"username": username, "password": password}, ignore_index=True)
+        df = df.append({
+            "username": username,
+            "password": password
+        },
+                       ignore_index=True)
         df.to_json(self.json_file)
 
     def check_passwords(self, username, password):

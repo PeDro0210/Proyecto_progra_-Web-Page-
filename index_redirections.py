@@ -19,9 +19,8 @@ def sign_up():
             return render_template("login.html")
         else:
             if username == "" or password == "":
-                return render_template(
-                    "sign_up.html", error="No puede haber campos vacíos"
-                )
+                return render_template("sign_up.html",
+                                       error="No puede haber campos vacíos")
             else:
                 with open(r"csv\usuarios.csv", "a") as file:
                     writer = csv.writer(file)
@@ -39,7 +38,8 @@ def login():
         password = request.form["password"]
 
         if username and password in open(r"csv\usuarios.csv").read():
-            return redirect(url_for("chat", username=username, password=password))
+            return redirect(
+                url_for("chat", username=username, password=password))
 
         else:
             return render_template("login.html")
