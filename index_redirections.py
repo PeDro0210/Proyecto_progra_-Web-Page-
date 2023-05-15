@@ -8,7 +8,7 @@ app=Flask(__name__, template_folder=r'templates', static_folder='static')
 
 
 
-
+# en el caso que no funcione a la primera, solo ingresar manuelmente la ruta 
 @app.route('/signup', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
@@ -58,7 +58,12 @@ def login():
 
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
-            
+    if request.method == 'POST':
+        message=request.form['message']
+        
+        return render_template('chat_program.html', message=message)
+    
+    else:
         return render_template('chat_program.html')
         
         
@@ -80,7 +85,7 @@ def home():
         
         
         
-
+              
 
 
 
