@@ -1,7 +1,7 @@
-from flask import *
 import csv
 import os
 
+from flask import *
 
 app = Flask(__name__, template_folder=r"templates", static_folder="static")
 
