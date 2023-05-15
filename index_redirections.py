@@ -8,7 +8,7 @@ app=Flask(__name__, template_folder=r'templates', static_folder='static')
 
 
 
-
+# en el caso que no funcione a la primera, solo ingresar manuelmente la ruta 
 @app.route('/signup', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
@@ -58,37 +58,36 @@ def login():
 
 @app.route('/chat', methods=['GET', 'POST'])
 def chat():
+    if request.method == 'POST':
+        message=request.form['message']
+        
+        return render_template('chat_program.html', message=message)
+    
+    else:
+        return render_template('chat_program.html')
+        
+        
+        
+        
+
+@app.route('/home', methods=['GET', 'POST'])
+def home():
     if request.method == 'GET':
         print('get')
-        global username, password
         
         username = request.args.get('username')
         password = request.args.get('password')
+        
+        print(username, password)
 
         if username and password in open(r'csv\usuarios.csv').read():
             
-            return render_template('chat_program.html', user=username, passs=password)
+            return render_template('home.html', user=username, passs=password)
         
         
-        else:
-            
-            return redirect(url_for('login'))
         
-    if request.method == 'POST':
-        message = request.form['message']
-        
-        
-        with open(r'csv\mensajes.csv', 'a') as file:
-            writer = csv.writer(file)
-            writer.writerow([message])
-            
-        return render_template('chat_program.html',user=username , message=message)
-        
-        
+              
 
-
-
-        
 
 
 
