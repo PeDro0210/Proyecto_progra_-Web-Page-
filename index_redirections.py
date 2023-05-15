@@ -44,7 +44,7 @@ def login():
 
         if username and password in open(r'csv\usuarios.csv').read():
 
-            return redirect(url_for('home', username=username, password=password))
+            return redirect(url_for('chat', username=username, password=password))
         
         else:
             
@@ -69,6 +69,7 @@ def chat():
         
         
         
+
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     if request.method == 'GET':
@@ -86,6 +87,7 @@ def home():
         
         
               
+
 
 
 
