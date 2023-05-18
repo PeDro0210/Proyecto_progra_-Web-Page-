@@ -1,7 +1,7 @@
 from flask import *
 import csv
-import os
-
+from message import *
+#DE HOY EN ADELENTAE, SIEMPRE VAS A COMENTAR ENSERIO
 
           
 app=Flask(__name__, template_folder=r'templates', static_folder='static')
@@ -33,7 +33,7 @@ def sign_up():
     
 
 
-
+#ver cual es el punto del json, honestamente ya no recuerdas
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -55,16 +55,16 @@ def login():
         return render_template('login.html')
 
 
-
-@app.route('/chat', methods=['GET', 'POST'])
-def chat():
-    if request.method == 'POST':
-        message=request.form['message']
+# this part migth not be necessary anymore
+# @app.route('/chat', methods=['GET', 'POST'])
+# def chat():
+#     if request.method == 'POST':
+#         message=request.form['message']
         
-        return render_template('chat_program.html', message=message)
+#         return render_template('chat_program.html', message=message)
     
-    else:
-        return render_template('chat_program.html')
+#     else:
+#         return render_template('chat_program.html')
         
         
         

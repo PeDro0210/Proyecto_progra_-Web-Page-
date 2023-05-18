@@ -1,6 +1,8 @@
 import pandas as pd
 
 
+#check what are you doing in here 
+
 class data:
     
     def __init__(self, json_file):
