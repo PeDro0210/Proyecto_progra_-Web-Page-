@@ -1,1 +1,11 @@
-{"avila": {"user": "pedro"}}
+{
+    "ElMago": {
+        "password": "1234"
+    },
+    "manuel": {
+        "password": "1234"
+    },
+    "123": {
+        "password": "123"
+    }
+}
