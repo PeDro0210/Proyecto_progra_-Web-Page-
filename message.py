@@ -9,7 +9,4 @@ def handle_message (message):
      if message != "User connected!":
          send (message, broadcast=True)
 
-@app.route('/')
-def chat_part():
-    return render_template ("chat_box.html")
 

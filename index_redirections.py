@@ -54,34 +54,25 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
+        print(username, password)
 
         if real_data.check_passwords(username, password):
 
-            return redirect(url_for('chat', username=username, password=password))
+            if password == real_data.json_file[username]['password']:
+                print('post')
+                return redirect(url_for('home', username=username, password=password))
+            else:
+                print('wrong password, bitch')
+                return render_template('login.html')
         
         else:
-            
+            print('get')
             return render_template('login.html')
         
     else:
-        
+        print('get')
         return render_template('login.html')
 
-
-# this part migth not be necessary anymore
-# @app.route('/chat', methods=['GET', 'POST'])
-# def chat():
-#     if request.method == 'POST':
-#         message=request.form['message']
-        
-#         return render_template('chat_program.html', message=message)
-    
-#     else:
-#         return render_template('chat_program.html')
-        
-        
-        
-        
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
@@ -96,6 +87,14 @@ def home():
         if real_data.check_passwords(username, password):
             
             return render_template('home.html', user=username, passs=password)
+    
+    else:
+        return redirect('chat_part')
+        
+
+@app.route('/chat', methods=['GET', 'POST'])
+def chat_part():
+    return render_template ("chat_box.html")
         
         
         

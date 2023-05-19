@@ -17,7 +17,9 @@ class data:
     
     def check_passwords(self, username, password):
         
-        if username and password in self.json_file.items():
+        print(self.json_file)
+        if username in self.json_file:
+            
             return True
         else:
             return False
