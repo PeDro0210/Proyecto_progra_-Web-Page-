@@ -9,7 +9,7 @@ from Login import data
 data_users = json.load(open(r'The_program\csv\users_manifest.json'))
 real_data=data(data_users)
 app=Flask(__name__, template_folder=r'templates', static_folder='static')
-app.config['SECRET'] = "secret!123"
+app.config['SECRET'] = "UWUTHE_SECRET_KEY"
 socketio = SocketIO(app,cors_allowed_origins="*")
 
  
@@ -78,23 +78,25 @@ def login():
 def home():
     if request.method == 'GET':
         print('get')
-        
+        global username
         username = request.args.get('username')
         password = request.args.get('password')
-        
-        print(username, password)
+
 
         if real_data.check_passwords(username, password):
             
             return render_template('home.html', user=username, passs=password)
     
     else:
-        return redirect('chat_part')
+        return redirect('chat_part',username=username)
         
 
 @app.route('/chat', methods=['GET', 'POST'])
 def chat_part():
-    return render_template ("chat_box.html")
+
+    username_1= username
+    print(f"username:{username_1}")
+    return render_template ("chat_box.html", user=username_1)
         
         
         
