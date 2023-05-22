@@ -62,6 +62,7 @@ def login():
                 print('post')
                 return redirect(url_for('home', username=username, password=password))
             else:
+                # haha, is just a joke haha, unless...
                 print('wrong password, bitch')
                 return render_template('login.html')
         
