@@ -11,6 +11,7 @@ real_data=data(data_users)
 app=Flask(__name__, template_folder=r'templates', static_folder='static')
 app.config['SECRET'] = "UWUTHE_SECRET_KEY"
 socketio = SocketIO(app) #I thing I fucked up this shit
+#the fucking firewalls, the don't let me use the html on the college 
 
  
     
