@@ -1,4 +1,3 @@
-import pandas as pd
 import json as js
 
 #check what are you doing in here 
@@ -19,8 +18,8 @@ class data:
         
         print(self.json_file)
         if username in self.json_file:
-            #later add the password part (is pretty easy to add, but i'm lazy haha)
             return True
+            
         else:
             return False
     

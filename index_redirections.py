@@ -10,7 +10,7 @@ data_users = json.load(open(r'The_program\csv\users_manifest.json'))
 real_data=data(data_users)
 app=Flask(__name__, template_folder=r'templates', static_folder='static')
 app.config['SECRET'] = "UWUTHE_SECRET_KEY"
-socketio = SocketIO(app,cors_allowed_origins="*")
+socketio = SocketIO(app) #I thing I fucked up this shit
 
  
     
