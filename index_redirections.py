@@ -77,7 +77,7 @@ def login():
 
 
 @app.route('/home', methods=['GET', 'POST'])
-def home():
+def home(): #I have to do all the user home for this shit
     if request.method == 'GET':
         print('get')
         global username
