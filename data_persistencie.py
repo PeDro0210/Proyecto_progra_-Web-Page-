@@ -2,7 +2,7 @@ import pandas as pd
 import json
 import matplotlib.pyplot as plt
 
-data = json.load(open(r'The_program\csv\users_manifest.json'))
+data = json.load(open(r'csv\users_manifest.json'))
 
 df = pd.DataFrame.from_dict(data, orient='index', columns=['password'])
 

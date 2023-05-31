@@ -10,7 +10,7 @@ class data:
     
     def create_user(self, username, password):
         self.json_file[username] = {"password":password}
-        js.dump(self.json_file, open(r'The_program\csv\users_manifest.json', 'w'), indent=4)
+        js.dump(self.json_file, open(r'csv\users_manifest.json', 'w'), indent=4)
         
         return self.json_file
     

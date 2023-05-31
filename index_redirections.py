@@ -6,7 +6,7 @@ from Login import data
 
 #DE HOY EN ADELENTAE, SIEMPRE VAS A COMENTAR ENSERIO
 
-data_users = json.load(open(r'The_program\csv\users_manifest.json'))
+data_users = json.load(open(r'csv\users_manifest.json'))
 real_data=data(data_users)
 app=Flask(__name__, template_folder=r'templates', static_folder='static')
 app.config['SECRET'] = "UWUTHE_SECRET_KEY"
